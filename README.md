@@ -1,105 +1,160 @@
-# India Weather Analytics & Forecasting 🌦️
+# India Weather Analytics & Forecasting
 
-This project explores historical weather patterns across 8 Indian cities using Python, PostgreSQL, Power BI, and machine learning. I analyzed weather data from 2020 to 2025, compared temperature and rainfall patterns, and built an interactive dashboard to present the findings.
+## About the Project
 
-I also integrated 7-day weather forecasts from the Open-Meteo API and evaluated a machine learning model for daily maximum temperature prediction.
+I built this project to analyze weather patterns across eight Indian cities using Python, PostgreSQL, Power BI, and Machine Learning.
 
-## 📌 Project Overview
+I worked with historical weather data from 2020 to 2025, analyzed temperature and rainfall patterns, created an interactive Power BI dashboard, and built a Random Forest model to predict daily maximum temperatures. I also used the Open-Meteo API to collect seven-day weather forecasts.
 
-The goal of this project was to understand how weather conditions vary across Indian cities and turn the data into useful insights.
+Through this project, I wanted to understand how raw weather data can be converted into useful insights using data analytics and visualization.
 
-I used Python for data analysis, PostgreSQL for storing and querying the data, and Power BI to build the dashboard. I also trained a Random Forest regression model and compared its results with a simple baseline.
+## Tools I Used
 
-## 🎯 Objectives
+- Python
+- PostgreSQL
+- Power BI
+- Pandas and NumPy
+- Scikit-learn
+- Open-Meteo API
+- Google Colab
 
-- Analyze historical temperature, rainfall, and wind-speed data.
-- Compare weather conditions across 8 Indian cities.
-- Explore yearly temperature trends and monthly rainfall patterns.
-- Retrieve 7-day forecasts using the Open-Meteo API.
-- Build and evaluate a machine learning model for maximum temperature prediction.
-- Present the findings through an interactive Power BI dashboard.
+## Cities Covered
 
-## 🛠️ Tools & Technologies
-
-- **Python** — Data cleaning, analysis, and machine learning
-- **Pandas and NumPy** — Data manipulation and calculations
-- **Scikit-learn** — Random Forest regression and model evaluation
-- **PostgreSQL** — Data storage and SQL analysis
-- **Power BI** — Interactive dashboard and visualizations
-- **Google Colab** — Python notebook development
-- **Open-Meteo API** — Weather forecast data
-
-## 🌍 Cities Covered
+I analyzed weather data for eight Indian cities:
 
 Ahmedabad, Bengaluru, Chennai, Hyderabad, Jaipur, Kolkata, Lucknow, and Mumbai.
 
-## 📊 Project Highlights
+## What I Worked On
 
-- Analyzed 17,536 historical weather records.
-- Covered 8 Indian cities over the 2020–2025 period.
-- Compared average temperatures and accumulated rainfall across cities.
-- Explored yearly temperature trends and monthly rainfall patterns.
-- Integrated 7-day weather forecasts.
-- Built a Power BI dashboard with KPI cards, a city map, charts, and model evaluation visuals.
+- Collected and analyzed historical weather data from 2020 to 2025.
+- Stored the data in PostgreSQL and used SQL queries to analyze weather patterns.
+- Compared average maximum and minimum temperatures across cities.
+- Analyzed yearly temperature trends and monthly rainfall patterns.
+- Identified the hottest recorded day in each city.
+- Checked the dataset for missing values and data quality issues.
+- Created an interactive Power BI dashboard with KPIs, charts, a map, and filters.
+- Collected seven-day weather forecasts using the Open-Meteo API.
+- Built a Random Forest regression model to predict daily maximum temperatures.
+- Compared the model's performance with a simple baseline prediction.
 
-## 🤖 Machine Learning
+## Dashboard Preview
 
-I used a Random Forest regression model to predict daily maximum temperature. The model uses calendar features, previous-day weather observations, recent temperature averages, and city information.
+My Power BI dashboard includes:
 
-The model was trained on data from 2020–2024 and evaluated on 2025 data.
+- Average maximum and minimum temperature
+- Total rainfall and total weather records
+- Weather locations across India
+- Historical weather data by city and year
+- Yearly temperature trends
+- Monthly average rainfall
+- Actual versus predicted temperatures
+- Prediction error distribution
+- City-wise average temperature
+- City-wise model error (MAE)
+
+The dashboard also includes city, year, and month filters to explore the data.
+
+## Key Findings
+
+After analyzing the historical weather data, I found that:
+
+- Ahmedabad had the highest average maximum temperature, at approximately **33.6°C**.
+- Bengaluru had the lowest average minimum temperature, at approximately **18.9°C**.
+- Mumbai recorded the highest total rainfall during the 2020–2025 period, at approximately **14,945.7 mm**.
+- Jaipur recorded the lowest total rainfall among the eight cities, at approximately **4,005.8 mm**.
+
+These comparisons helped me understand the differences in temperature and rainfall patterns across the selected cities.
+
+## SQL Analysis
+
+I used PostgreSQL to organize and analyze the weather data.
+
+Some of the queries I worked on included:
+
+- Checking total records and missing values.
+- Calculating average temperatures by city and year.
+- Comparing monthly temperature and rainfall patterns.
+- Finding the hottest recorded day in each city.
+- Calculating forecast temperature and rainfall summaries.
+- Grouping and sorting data to compare weather conditions across cities.
+
+I used SQL functions and concepts such as `GROUP BY`, `ORDER BY`, `AVG()`, `SUM()`, `COUNT()`, `ROUND()`, `EXTRACT()`, `ROW_NUMBER()`, and `DISTINCT ON`.
+
+## Dataset Details
+
+### Historical Weather Data
+
+The historical dataset contains **17,536 records** from eight Indian cities, covering 2020–2025.
+
+| Column Name | Description |
+|---|---|
+| `time` | Date of observation |
+| `temperature_2m_mean` | Average temperature (°C) |
+| `temperature_2m_max` | Maximum temperature (°C) |
+| `temperature_2m_min` | Minimum temperature (°C) |
+| `wind_speed_10m_max` | Maximum wind speed |
+| `precipitation_sum` | Total precipitation |
+| `rain_sum` | Total rainfall |
+| `weather_code` | Weather condition code |
+| `city` | City name |
+
+### Seven-Day Forecast Data
+
+I also collected forecast data for the same eight cities using Open-Meteo.
+
+| Column Name | Description |
+|---|---|
+| `city` | City name |
+| `date` | Forecast date |
+| `max_temp` | Forecast maximum temperature |
+| `min_temp` | Forecast minimum temperature |
+| `rain` | Forecast rainfall |
+
+This dataset contains **56 records**, representing seven forecast days for each city.
+
+## Machine Learning
+
+I built a Random Forest regression model to predict daily maximum temperatures using historical weather information.
+
+I trained the model using data from 2020–2024 and evaluated it on test data from 2025.
+
+### Model Results
 
 | Metric | Random Forest | Baseline |
 |---|---:|---:|
 | MAE | 0.98°C | 1.00°C |
 | RMSE | 1.33°C | 1.39°C |
 
-The model achieved an MAE of 0.98°C compared with 1.00°C for the baseline, which is an improvement of approximately 1.9%.
+The model achieved an MAE of **0.98°C** and an RMSE of **1.33°C**, with an approximately **1.89% improvement in MAE** over the baseline.
 
-**Note:** This is a one-day-ahead prediction experiment using previous weather observations. The separate 7-day forecast comes from Open-Meteo; it is not generated by this machine learning model.
+The improvement was relatively small, but this comparison helped me evaluate the model against a simple alternative rather than relying only on its standalone results.
 
-## 📈 Power BI Dashboard
+The machine-learning model predicts daily maximum temperature one day ahead using historical observations and engineered features. The separate seven-day forecast comes from Open-Meteo.
 
-The dashboard includes:
+## Project Files
 
-- Average maximum and minimum temperature
-- Total rainfall and historical record count
-- Map showing the locations of the 8 cities
-- Yearly temperature trends
-- Monthly average rainfall
-- Actual vs. predicted temperature
-- Prediction error distribution
-- City-wise model error comparison
+The repository contains the project notebook, SQL queries, forecast script, datasets, and project report. The exact file structure will depend on the files uploaded to GitHub.
 
-## 🗄️ SQL Analysis
+## What I Learned
 
-I used PostgreSQL to store the weather data and write queries for city-level summaries, average temperatures, rainfall comparisons, and monthly and yearly trends.
+While working on this project, I gained practical experience in:
 
-## 📁 Project Structure
+- Cleaning and analyzing real-world datasets using Python.
+- Writing SQL queries and performing data aggregation in PostgreSQL.
+- Creating interactive dashboards in Power BI.
+- Working with weather API data.
+- Building and evaluating a regression model.
+- Comparing model predictions with actual values.
+- Presenting analytical results through charts and visualizations.
 
-```text
-india-weather-analytics-forecasting/
-├── data/
-├── notebooks/
-├── powerbi/
-├── sql/
-├── images/
-└── README.md
-```
+## Future Improvements
 
-The folders will contain the datasets, Python notebook, Power BI dashboard, SQL scripts, and dashboard screenshots included in the repository.
+I would like to improve this project further by adding more cities, testing additional machine-learning models, improving prediction accuracy, and automating the data collection and dashboard refresh process.
 
-## 🚀 Future Improvements
-
-- Add more cities to the analysis.
-- Automate weather-data updates.
-- Test additional machine learning models.
-- Evaluate the model across more test periods.
-- Explore seasonal patterns and extreme weather events in more detail.
-
-## 👨‍💻 About Me
+## Author
 
 **Chandra Mohan Hembram**
 
 Mechanical Engineering Student | Aspiring Data Analyst
 
-Interested in Python, SQL, PostgreSQL, Power BI, data analytics, and machine learning.
+Interested in Data Analytics, Python, SQL, Power BI, and Machine Learning.
