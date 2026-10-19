@@ -150,6 +150,18 @@ While working on this project, I gained practical experience in:
 ## Future Improvements
 
 I would like to improve this project further by adding more cities, testing additional machine-learning models, improving prediction accuracy, and automating the data collection and dashboard refresh process.
+## Project Files
+
+- [Power BI Dashboard (.pbix)](Indian%20Weather%20Forecast.pbix) – Interactive weather analytics dashboard.
+- [Dashboard Screenshot (.png)](Indianweather_dashboard.png) – Preview of the Power BI dashboard.
+- [SQL Analysis Queries](Indian_weather_forecast.sql) – PostgreSQL queries used for weather analysis.
+- [Historical Weather Dataset](india_weather_export.csv) – Historical weather data for eight Indian cities.
+- [Seven-Day Forecast Dataset](india_forecast.csv) – Forecast data collected using Open-Meteo.
+- [Machine Learning Predictions](ml_weather_predictions.csv) – Actual temperatures, model predictions, baseline predictions, and prediction errors.
+
+## Dashboard Preview
+
+![India Weather Analytics Dashboard](Indianweather_dashboard.png)
 
 ## Author
 
