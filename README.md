@@ -158,6 +158,7 @@ I would like to improve this project further by adding more cities, testing addi
 - [Historical Weather Dataset](india_weather_export.csv) – Historical weather data for eight Indian cities.
 - [Seven-Day Forecast Dataset](india_forecast.csv) – Forecast data collected using Open-Meteo.
 - [Machine Learning Predictions](ml_weather_predictions.csv) – Actual temperatures, model predictions, baseline predictions, and prediction errors.
+-  [Project Report (PDF)](India_Weather_Analytics_Report_Professional.pdf) – Detailed report covering the analysis, dashboard, and machine-learning results.
 
 ## Dashboard Preview
 
